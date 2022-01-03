@@ -1,0 +1,13 @@
+<div class="component">
+    <h1 class="component title"> Log in page</h1>
+    <form [formGroup]="loginForm" method="post"  (ngSubmit)="onConnect()">
+        <input id="emailField" type="email" placeholder="email" formControlName="email">
+        <input id="pswdField" [type]="showPswd" placeholder="pswd" formControlName="pswd">
+        <label for="showPswd">Afficher le mot de passe</label>
+        <input id=showPswd type ="checkbox" (change)="onShowPswd()">
+        <input id=connectButton class="submit" type="submit">
+    </form>
+
+    <button id="newAccnt" (click)="onNewAccnt()">Je n'ai pas de compte</button>
+    <button id="frgtPswd" (click)="onFrgtPswd()">Mot de passe oublié</button>
+</div>

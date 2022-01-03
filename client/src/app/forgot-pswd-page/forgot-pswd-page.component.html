@@ -1,0 +1,8 @@
+<div class="component">
+    <h1 class="component title"> Forgot Password Page</h1>
+    <form [formGroup]="retrieveForm" method="post"  (ngSubmit)="onRetrieve()">
+        <p id="instrucions">Veuillez entrer votre email pour recuperer vos informations de connexions</p>
+        <input id="emailField" type="email" placeholder="email" formControlName="email">
+        <input type="submit">
+    </form>
+</div>

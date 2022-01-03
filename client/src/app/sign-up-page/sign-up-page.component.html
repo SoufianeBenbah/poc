@@ -1,0 +1,14 @@
+<div class="component">
+    <h1 class="component title"> Sign Up Page test</h1>
+    <form [formGroup]="signUpForm" method="post"  (ngSubmit)="onSignUp()">
+        <input id="fName" type="text" placeholder="votre prénom" formControlName="fName">
+        <input id="lName" type="text" placeholder="votre nom" formControlName="lName">
+        <input id="birth" type="date" formControlName="birth">
+        <input id="emailField" type="email" placeholder="email" formControlName="email">
+        <input id="pswdField" [type]="showPswd" placeholder="pswd" formControlName="pswd">
+        <input id="cnfPswdField" [type]="showPswd" placeholder="confirmer mot de passe" formControlName="cnfPswd">
+        <label for="showPswd">Afficher le mot de passe</label>
+        <input id=showPswd type ="checkbox" (change)="onShowPswd()">
+        <input id=connectButton class="submit" type="submit">
+    </form>
+</div>
