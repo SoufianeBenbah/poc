@@ -11,6 +11,7 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ForgotPswdPageComponent } from './forgot-pswd-page/forgot-pswd-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     ForgotPswdPageComponent,
     ProfileComponent,
     NavbarComponent,
+    EventComponent,
     
   ],
   imports: [

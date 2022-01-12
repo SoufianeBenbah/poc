@@ -37,9 +37,9 @@ export class SignUpPageComponent implements OnInit {
     var testFilled:Boolean=true;
     var testPswd:Boolean=true;
     var testAge:Boolean=true;
-    //testAge=this.checkAge();
-    //testFilled=this.checkFields();
-    //testPswd=this.checkPswd();
+    testAge=this.checkAge();
+    testFilled=this.checkFields();
+    testPswd=this.checkPswd();
     if(testFilled && testAge && testPswd){
       alert('formulaire rempli correctement \n envoi a implementer \n informations communiquees : '+
       JSON.stringify(this.signUpForm.value));
