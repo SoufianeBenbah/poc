@@ -6,10 +6,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 
 const routes: Routes = [
-  {path:'sign-up-page', component: SignUpPageComponent},
-  {path:'log-in-page', component: LogInPageComponent},
-  {path:'forgot-pswd-page', component: ForgotPswdPageComponent},
-  {path:'profile-page', component: ProfileComponent}
+  {path:'sign-up', component: SignUpPageComponent},
+  {path:'log-in', component: LogInPageComponent},
+  {path:'forgot-pswd', component: ForgotPswdPageComponent},
+  {path:'profile', component: ProfileComponent}
 ];
 
 @NgModule({

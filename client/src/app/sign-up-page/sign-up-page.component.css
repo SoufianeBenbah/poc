@@ -1,0 +1,46 @@
+
+.component{
+    background-image: url("../../assets/signUpBackGround2.jpg");
+    width :100%;
+    height : 800px;
+}
+.componentTitle{
+    text-align: center;
+    text-shadow: 2px 2px 2px grey;
+    margin:Auto;
+    width: 100%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, serif;
+    margin-bottom: 20px;
+}
+.formContainer{
+    background-color:rgba(100,100,100,0.7);
+    margin: auto;
+    width: 33%;
+    border:1px solid black;
+    border-radius: 5px;
+}
+.signUpForm{
+    display:grid;
+    margin:auto;
+    width: 90%;
+}
+.formInput{
+    border:1px solid black;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px grey;
+    text-align: center;
+    width:90%;
+    margin-top:10px ;
+    margin-bottom: 10px;
+    height:40px;
+    font-size: 100%;
+}
+
+.submit{
+    box-shadow: 4px 4px 4px grey;
+    text-shadow: 2px 2px 2px grey;
+    margin:auto;
+    margin-bottom: 20px;
+    width :20%;
+    height :40px;
+}

@@ -10,6 +10,7 @@ import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ForgotPswdPageComponent } from './forgot-pswd-page/forgot-pswd-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
     SignUpPageComponent,
     ForgotPswdPageComponent,
     ProfileComponent,
+    NavbarComponent,
     
   ],
   imports: [
