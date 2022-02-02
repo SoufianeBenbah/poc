@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-log-in-page',
@@ -7,13 +8,14 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./log-in-page.component.css']
 })
 export class LogInPageComponent implements OnInit {
+  account={'userID':0}
   loginForm:FormGroup =new FormGroup({
     email:new FormControl(''),
-    pswd:new FormControl(''),
+    pswd:new FormControl('')
     
   })
   showPswd:String='password';
-  constructor() {
+  constructor(private accountService:AccountService) {
    }
 
   ngOnInit(): void {
@@ -29,8 +31,10 @@ export class LogInPageComponent implements OnInit {
     console.log(this.showPswd);
   }
   onConnect():void{
-    console.log('clic sur le bouton connexion \n pour le compte : '+ JSON.stringify(this.loginForm.value))
-    
+    this.accountService.connect('123','456')
+    .subscribe((data: Connect) => this.account = {
+        userID: data.ID
+    });
   }
 
   onNewAccnt():void{
