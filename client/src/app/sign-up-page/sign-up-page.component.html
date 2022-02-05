@@ -1,7 +1,9 @@
-<div class="component" >
-    <h1 class="componentTitle"> Sign Up Page test</h1>
-    <div class="formContainer">
-        <form [formGroup]="signUpForm" class="signUpForm" method="post"  (ngSubmit)="onSignUp()">
+<div class="center">
+    <div class="main">  	
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="signup">
+        <form [formGroup]="signUpForm" method="post"  (ngSubmit)="onSignUp()">
+            <label for="chk" aria-hidden="true" class="title">S'inscrire</label>
             <input id="fName" class="formInput" type="text" placeholder="votre prénom" formControlName="fName">
             <input id="lName" class="formInput" type="text" placeholder="votre nom" formControlName="lName">
             <input id="birth" class="formInput" type="date" formControlName="birth">
@@ -12,5 +14,6 @@
             <input id=showPswd  type ="checkbox" (change)="onShowPswd()">
             <input id=connectButton class="formInput" class="submit" type="submit">
         </form>
-</div>
+
+    </div>
 </div>

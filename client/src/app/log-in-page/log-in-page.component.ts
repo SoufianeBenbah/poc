@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AccountService } from '../account.service';
+import { UserService } from '../user.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-log-in-page',
@@ -8,17 +10,19 @@ import { AccountService } from '../account.service';
   styleUrls: ['./log-in-page.component.css']
 })
 export class LogInPageComponent implements OnInit {
-  account={'userID':0}
+  currentUserId=-1;
+  subscription:Subscription=new Subscription();
   loginForm:FormGroup =new FormGroup({
     email:new FormControl(''),
     pswd:new FormControl('')
     
   })
   showPswd:String='password';
-  constructor(private accountService:AccountService) {
+  constructor(private accountService:AccountService, private userService:UserService) {
    }
 
   ngOnInit(): void {
+    this.subscription = this.userService.currentUser.subscribe(userID => this.currentUserId = userID)
  
   }
   onShowPswd():void{
@@ -31,11 +35,18 @@ export class LogInPageComponent implements OnInit {
     console.log(this.showPswd);
   }
   onConnect():void{
-    this.accountService.connect('123','456')
-    .subscribe((data: Connect) => this.account = {
-        userID: data.ID
+    var email=this.loginForm.value.email;
+    var pswd=this.loginForm.value.pswd;
+    console.log('attempting to connect with email : ' +email + 'and pswd : '+pswd);
+    this.accountService.connect(email,pswd)
+    .subscribe((data:any) =>  {
+    
+      this.userService.changeUser(data)
+    
+    console.log(this.currentUserId);
     });
-  }
+
+  };
 
   onNewAccnt():void{
     console.log('clic sur le bouton new account')
