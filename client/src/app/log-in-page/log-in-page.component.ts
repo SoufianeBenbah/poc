@@ -41,6 +41,7 @@ export class LogInPageComponent implements OnInit {
     console.log('attempting to connect with email : ' +email + 'and pswd : '+pswd);
     //var hashed=bcrypt.hashSync(pswd);
     
+    
     this.accountService.connect(email,pswd)
     .subscribe((data:any) =>  {
     
