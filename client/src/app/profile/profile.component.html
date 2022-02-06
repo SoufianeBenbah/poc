@@ -1,15 +1,17 @@
 <div class="center">
 <div class="card">
+  <button (click)="onRefresh()">refresh</button>
     <div class="img">
       <img src="../../assets/images/photo_profil.jpg">
+      
     </div>
     <div class="infos">
       <div class="name">
-        <h2>Jean Dupont</h2>
-        <h4>Membre depuis  : 2 mois et 12 jours</h4>
+        <h2>{{currentUser.firstName}}</h2>
+        <h4>Membre depuis le {{currentUser.joined}}</h4>
       </div>
       <p class="text">
-        Adresse : 1 rue de la Rue, Ville
+        Habite à : {{currentUser.address}}
         </p>
         <p class="text">
         Je suis abonné à :

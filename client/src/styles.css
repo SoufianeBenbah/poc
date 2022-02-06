@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
-.component{
+.background{
     background-image: url("../src/assets/images/broken_concrete.jpg");
+    height:100%;
+    width:100%;
+    opacity: 90%;
+}
+html,body{
+    height:100%;
+    width: 100%;
+}
+p{
+    color:white;
 }

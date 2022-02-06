@@ -7,18 +7,25 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MeetupService {
-  getMeetUpsUrl="";
-  getMeetUpsLightUrl="";
+  MeetUpsUrl="http://localhost:8080/meetups";
+  addGuestUrl="http://localhost:8080/addGuest?id=";
+
   constructor(private http: HttpClient) {}
   getMeetUps(){
-    return this.http.get<any>(this.getMeetUpsUrl)
+    return this.http.get<any>(this.MeetUpsUrl)
   }
 
-  getMeetUpsLight(){
-    return this.http.get<any>(this.getMeetUpsLightUrl)
+  createMeetUp(id:any,infos:any){
+    var parametedUrl=this.MeetUpsUrl+'?id='+id;
+    return this.http.post<any>(parametedUrl,infos);
   }
 
   getMeetUpById(id:any){
-    return this.http.get<any>(this.getMeetUpsUrl,{params:{id}})
+    return this.http.get<any>(this.MeetUpsUrl,{params:{id}})
+  }
+
+  addGuest(guestId:any,MeetUpId:any){
+    var parametedUrl =this.addGuestUrl+MeetUpId;
+    return this.http.put<any>(parametedUrl,guestId);
   }
 }

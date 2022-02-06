@@ -15,6 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { MeetUpFormComponent } from './meet-up-form/meet-up-form.component';
+import { MeetUpDisplayComponent } from './meet-up-display/meet-up-display.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ChatComponent } from './chat/chat.component';
     EventComponent,
     HomeComponent,
     ChatComponent,
+    MeetUpFormComponent,
+    MeetUpDisplayComponent,
     
   ],
   imports: [

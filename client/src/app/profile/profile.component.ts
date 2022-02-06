@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailValidator } from '@angular/forms';
+import { UserService } from '../user.service';
+import { Subscription } from 'rxjs';
+import { AccountService } from '../account.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,27 +10,23 @@ import { EmailValidator } from '@angular/forms';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  //test user avant connexion au front a delete plus tard
-  /*
-  user:object = new Object({"fName":"Thomas","lName":"Boston","birth":"1999-02-01","email":"thomas.boston972@gmail.com","hPswd":"1234"});
-  fName:String;
-  lName:String;
-  birth:String;
-  email:String;
-  hpswd:String;
-
-*/
-  constructor() { 
-    //var currentUser=this.loadUser();
-    //this.fName=currentUser.value.fName
+  currentUserId=-1;
+  currentUser:any;
+  subscription:Subscription=new Subscription();
+  constructor(private userService:UserService,private accountService:AccountService) { 
   }
    
 
   ngOnInit(): void {
+    this.subscription = this.userService.currentUser.subscribe(userID => this.currentUserId = userID)
   }
-  /*
-  loadUser():Object{
-    //return this.user
+  onRefresh():void{
+    this.currentUser=this.accountService.getUser(this.currentUserId)
+    .subscribe((user)=>{
+      this.currentUser=user;
+      this.currentUser=this.currentUser;
+      console.log(user)
+    })
   }
-  */
+  
 }
