@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { AccountService } from '../account.service';
 import { UserService } from '../user.service';
 import { Subscription } from 'rxjs';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-log-in-page',
@@ -38,6 +39,8 @@ export class LogInPageComponent implements OnInit {
     var email=this.loginForm.value.email;
     var pswd=this.loginForm.value.pswd;
     console.log('attempting to connect with email : ' +email + 'and pswd : '+pswd);
+    //var hashed=bcrypt.hashSync(pswd);
+    
     this.accountService.connect(email,pswd)
     .subscribe((data:any) =>  {
     

@@ -9,12 +9,17 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class AccountService {
   connectUrl="http://localhost:8080/login";
-
+  signUpUrl="http://localhost:8080/signup"
   constructor(private http: HttpClient) { }
   
   connect(email:any,password:any){
     var parameted_url=this.connectUrl+'?email='+email+'&password='+password;
     
     return this.http.get(<any>(parameted_url));
+  }
+
+  signup(formContent:any){
+    console.log('envoie de la requete avec les infos '+ formContent)
+    return this.http.post(<any>(this.signUpUrl),formContent);
   }
 }

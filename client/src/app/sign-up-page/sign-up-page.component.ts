@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,  } from '@angular/forms';
+import { AccountService } from '../account.service';
+import { UserService } from '../user.service';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-sign-up-page',
@@ -8,17 +11,19 @@ import { FormControl, FormGroup, Validators,  } from '@angular/forms';
 })
 export class SignUpPageComponent implements OnInit {
   signUpForm:FormGroup =new FormGroup({
-    fName:new FormControl('',[Validators.required,Validators.minLength(5)]),
-    lName:new FormControl(''),
-    birth:new FormControl(''),
+    firstName:new FormControl('',[Validators.required,Validators.minLength(5)]),
+    lastName:new FormControl(''),
+    birthday:new FormControl(''),
     email:new FormControl(''),
-    pswd:new FormControl(''),
+    address:new FormControl(''),
+    phone:new FormControl(''),
+    password:new FormControl(''),
     cnfPswd:new FormControl(''),
     
   })
   showPswd:String='password';
 
-  constructor() { }
+  constructor(private accountService:AccountService) { }
 
   ngOnInit(): void {
   }
@@ -38,13 +43,21 @@ export class SignUpPageComponent implements OnInit {
     var testPswd:Boolean=true;
     var testAge:Boolean=true;
     testAge=this.checkAge();
-    testFilled=this.checkFields();
+    //testFilled=this.checkFields();
     testPswd=this.checkPswd();
     if(testFilled && testAge && testPswd){
-      alert('formulaire rempli correctement \n envoi a implementer \n informations communiquees : '+
-      JSON.stringify(this.signUpForm.value));
-      console.log('formulaire rempli correctement \n envoi a implementer \n informations communiquees : '+
-      JSON.stringify(this.signUpForm.value));
+      var formContent=this.signUpForm.value;
+      //const salt = bcrypt.genSaltSync(10);
+      
+      //var hashed=bcrypt.hashSync(formContent.password);
+      //var hashed =sha512(formContent.password);
+      //formContent.password=hashed;
+      console.log("tentative d'enregistrement des donnees suivantes : "+
+      JSON.stringify(formContent));
+      this.accountService.signup(formContent)
+      .subscribe((data:any)=>{
+        console.log(data)
+      })
     }
     else if(!testFilled){
       alert('tous les champs doivent êtres remplies');
@@ -63,7 +76,7 @@ export class SignUpPageComponent implements OnInit {
 
   //verif si les mdp sont les memes
   checkPswd():boolean{
-    return this.signUpForm.value.pswd==this.signUpForm.value.cnfPswd;
+    return this.signUpForm.value.password==this.signUpForm.value.cnfPswd;
   }
 
   //verif si tous les champs sont remplis
@@ -79,8 +92,8 @@ export class SignUpPageComponent implements OnInit {
   //verif si le mec est majeur
   checkAge():boolean{
     var today=new Date();
-    var birth=new Date(this.signUpForm.value.birth);
-    var dif=new Date(today.getTime()-birth.getTime());
+    var birthday=new Date(this.signUpForm.value.birthday);
+    var dif=new Date(today.getTime()-birthday.getTime());
     var age=dif.getUTCFullYear()-1970;
     console.log(('age :' +age));
     return age>=18;
