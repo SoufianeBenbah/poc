@@ -17,7 +17,8 @@ import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { MeetUpFormComponent } from './meet-up-form/meet-up-form.component';
 import { MeetUpDisplayComponent } from './meet-up-display/meet-up-display.component';
-
+import { HostedMatchesComponent } from './hosted-matches/hosted-matches.component';
+import { LocatedMeetUpDisplayComponent } from './located-meet-up-display/located-meet-up-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { MeetUpDisplayComponent } from './meet-up-display/meet-up-display.compon
     ChatComponent,
     MeetUpFormComponent,
     MeetUpDisplayComponent,
-    
+    HostedMatchesComponent,
+    LocatedMeetUpDisplayComponent
   ],
   imports: [
     BrowserModule,

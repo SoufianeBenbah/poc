@@ -1,6 +1,5 @@
 <div class="center">
 <div class="card">
-  <button (click)="onRefresh()">refresh</button>
     <div class="img">
       <img src="../../assets/images/photo_profil.jpg">
       
@@ -12,11 +11,7 @@
       </div>
       <p class="text">
         Habite à : {{currentUser.address}}
-        </p>
-        <p class="text">
-        Je suis abonné à :
-        Canal+
-        </p>
+      </p>
       <ul class="stats">
         <li>
           <h3>8</h3>
@@ -32,7 +27,7 @@
         </li>
       </ul>
       <div class="links">
-        <button class="follow">Mes matchs</button>
+        <button class="follow" routerLink="/hosted">Mes matchs</button>
         <button class="view">Edit profile</button>
       </div>
     </div>

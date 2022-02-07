@@ -9,6 +9,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class MeetupService {
   MeetUpsUrl="http://localhost:8080/meetups";
   addGuestUrl="http://localhost:8080/addGuest?id=";
+  getHostedMeetUpUrl="http://localhost:8080/hostedMeetup?id=";
+  getSameCityMeetUpUrl="http://localhost:8080/sameCityMeetUp?location=";
 
   constructor(private http: HttpClient) {}
   getMeetUps(){
@@ -24,8 +26,20 @@ export class MeetupService {
     return this.http.get<any>(this.MeetUpsUrl,{params:{id}})
   }
 
-  addGuest(guestId:any,MeetUpId:any){
-    var parametedUrl =this.addGuestUrl+MeetUpId;
+  addGuest(meetUpId:any,guestId:any){
+    var parametedUrl =this.addGuestUrl+meetUpId;
     return this.http.put<any>(parametedUrl,guestId);
   }
+
+  getUserHostedtUps(userId:any){
+    var parametedUrl =this.getHostedMeetUpUrl+userId;
+    return this.http.get<any>(parametedUrl);
+  }
+
+  getSameCityMeetUps(location:any){
+    var parametedUrl =this.getSameCityMeetUpUrl+location;
+    return this.http.get<any>(parametedUrl);
+  }
+
+
 }

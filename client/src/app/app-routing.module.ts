@@ -9,6 +9,8 @@ import { SignUpPageComponent } from './sign-up-page/sign-up-page.component';
 import { ChatComponent } from './chat/chat.component';
 import { MeetUpDisplayComponent } from './meet-up-display/meet-up-display.component';
 import { MeetUpFormComponent } from './meet-up-form/meet-up-form.component';
+import { HostedMatchesComponent } from './hosted-matches/hosted-matches.component';
+import { LocatedMeetUpDisplayComponent } from './located-meet-up-display/located-meet-up-display.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path:'events', component:EventComponent},
   {path:'chat',component:ChatComponent},
   {path:'meetupform',component:MeetUpFormComponent},
-  {path:'meetupdisplay',component:MeetUpDisplayComponent}
+  {path:'meetupdisplay',component:MeetUpDisplayComponent},
+  {path:'hosted',component:HostedMatchesComponent},
+  {path:'samecity',component:LocatedMeetUpDisplayComponent}
 ];
 
 @NgModule({

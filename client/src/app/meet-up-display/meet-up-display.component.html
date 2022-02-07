@@ -11,11 +11,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let match of this.matches">
+          <tr *ngFor="let match of this.matches; let i =index">
             <td>{{match.date}}</td>
             <td>{{match.firstTeam}}</td>
             <td>{{match.secondTeam}}</td>
-            <td><button>Reserver la rencontre</button></td>
+            <td><button (click)="onReserve(i+1)">Reserver la rencontre</button></td>
           </tr>
         </tbody>
       </table>

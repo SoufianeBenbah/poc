@@ -18,15 +18,14 @@ export class ProfileComponent implements OnInit {
    
 
   ngOnInit(): void {
-    this.subscription = this.userService.currentUser.subscribe(userID => this.currentUserId = userID)
-  }
-  onRefresh():void{
-    this.currentUser=this.accountService.getUser(this.currentUserId)
-    .subscribe((user)=>{
-      this.currentUser=user;
-      this.currentUser=this.currentUser;
-      console.log(user)
+    this.subscription = this.userService.currentUser
+    .subscribe((userID) => {
+      this.currentUserId = userID
+      this.accountService.getUser(this.currentUserId)
+        .subscribe((user)=>{
+        this.currentUser=user;
+        console.log(user)
+      })
     })
-  }
-  
+  }  
 }
