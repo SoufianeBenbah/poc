@@ -48,6 +48,7 @@ export class LogInPageComponent implements OnInit {
       this.userService.changeUser(data)
     
     console.log(this.currentUserId);
+    alert('vous êtes connecté ! votre userID : ' +this.currentUserId);
     });
 
   };

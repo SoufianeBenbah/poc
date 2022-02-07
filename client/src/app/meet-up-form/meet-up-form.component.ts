@@ -16,6 +16,7 @@ export class MeetUpFormComponent implements OnInit {
     date:new FormControl(''),
     firstTeam:new FormControl(''),
     secondTeam:new FormControl(''),
+    location:new FormControl('')
   })
 
   constructor(private meetUpService: MeetupService,private userService:UserService) { }
